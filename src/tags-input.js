@@ -1,12 +1,24 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Input, Label, Form, Icon } from 'semantic-ui-react'
+import Tag from './tag'
 
 export default class extends React.Component {
 
     static propTypes = {
         tags: PropTypes.array.isRequired,    
     }
+
+    /*
+    item: PropTypes.oneOfType([
+            PropTypes.string,
+            PropTypes.shape({
+                text: PropTypes.string.isRequired,
+                color: PropTypes.string,
+                removable: PropTypes.bool
+            })
+        ]).isRequired
+    */
 
     state = {
         inputValue: '',
@@ -30,18 +42,7 @@ export default class extends React.Component {
                 <Form.Group>
                     {
                         this.state.tags.map((tag, idx) => {
-                            return (
-                                <Form.Field key={idx}>
-                                    <Label size="small">
-                                        {tag}
-                                        <Icon 
-                                            name="delete" 
-                                            link 
-                                            // onClick={this.deleteTag.bind(this, tag)}
-                                        />
-                                  </Label>
-                                </Form.Field>
-                            )
+                            return <Tag key={idx} text={tag} removable />
                         })
                     }
                     <Form.Field>
