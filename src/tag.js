@@ -42,9 +42,9 @@ export default class extends React.Component {
                     {
                         removable &&
                         <Icon 
-                          name="delete" 
+                            name="delete" 
                             link 
-                            onClick={onRemoveClick}
+                            onClick={() => onRemoveClick(this.props.text)}
                         />
                     }
                 </Container>

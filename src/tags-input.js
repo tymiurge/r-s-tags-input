@@ -36,13 +36,26 @@ export default class extends React.Component {
         
     }
 
+    deleteTag = (tag) => {
+        const newTags = this.state.tags.filter(t => tag !== t)
+        this.setState(
+            Object.assign({}, this.state, { tags: newTags })
+            /*,
+            () => { 
+                this.props.onTagRemove && this.props.onTagRemove(tag)
+                this.props.onChange(this.state.tags) 
+            }
+            */
+        )
+    }
+
     render () {
         return (
             <Form>
                 <Form.Group>
                     {
                         this.state.tags.map((tag, idx) => {
-                            return <Tag key={idx} text={tag} removable />
+                            return <Tag key={idx} text={tag} removable onRemoveClick={this.deleteTag} />
                         })
                     }
                     <Form.Field>
