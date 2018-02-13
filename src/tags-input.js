@@ -7,11 +7,15 @@ export default class extends React.Component {
 
     static propTypes = {
         tags: PropTypes.array.isRequired,
-        placeholder: PropTypes.string
+        placeholder: PropTypes.string,
+        onTagAdd: PropTypes.func,
+        onTagRemove: PropTypes.func
     }
 
     static defaultProps = {
-        placeholder: ''
+        placeholder: '',
+        onTagAdd: () => {},
+        onTagRemove: () => {}
     }
 
     /*
@@ -38,17 +42,12 @@ export default class extends React.Component {
     }
 
     addTagFromInput = () => {
-        const tags = [...this.state.tags, this.state.inputValue]
+        const newTag = this.state.inputValue
+        const tags = [...this.state.tags, newTag]
         this.setState(
-            Object.assign({}, this.state, {tags, inputValue: ''})
-            /*
-            () => { 
-                this.props.onTagAdd && this.props.onTagAdd(newTag) 
-                this.props.onChange(this.state.tags)
-            }
-            */
+            Object.assign({}, this.state, {tags, inputValue: ''}),
+            () => this.props.onTagAdd(newTag)
         )
-
     }
 
     catchTagSubmit = ({key}) => key === 'Enter' ? this.addTagFromInput() : null
@@ -56,13 +55,8 @@ export default class extends React.Component {
     deleteTag = (tag) => {
         const newTags = this.state.tags.filter(t => tag !== t)
         this.setState(
-            Object.assign({}, this.state, { tags: newTags })
-            /*,
-            () => { 
-                this.props.onTagRemove && this.props.onTagRemove(tag)
-                this.props.onChange(this.state.tags) 
-            }
-            */
+            Object.assign({}, this.state, { tags: newTags }),
+            () => this.props.onTagRemove(tag)
         )
     }
 
