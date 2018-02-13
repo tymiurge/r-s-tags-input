@@ -6,7 +6,12 @@ import TagsInput from './tags-input'
 export default class extends Component {
   
   render() {
-    return <TagsInput tags={['eng', 'fr']}/>
+    return ( 
+      <TagsInput
+        tags={['eng', 'fr']}
+        placeholder={'tag and enter'}
+      />
+    )
   }
 }
 

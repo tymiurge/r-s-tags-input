@@ -6,7 +6,12 @@ import Tag from './tag'
 export default class extends React.Component {
 
     static propTypes = {
-        tags: PropTypes.array.isRequired,    
+        tags: PropTypes.array.isRequired,
+        placeholder: PropTypes.string
+    }
+
+    static defaultProps = {
+        placeholder: ''
     }
 
     /*
@@ -32,9 +37,21 @@ export default class extends React.Component {
         ))
     }
 
-    catchTagSubmit = (e) => {
-        
+    addTagFromInput = () => {
+        const tags = [...this.state.tags, this.state.inputValue]
+        this.setState(
+            Object.assign({}, this.state, {tags, inputValue: ''})
+            /*
+            () => { 
+                this.props.onTagAdd && this.props.onTagAdd(newTag) 
+                this.props.onChange(this.state.tags)
+            }
+            */
+        )
+
     }
+
+    catchTagSubmit = ({key}) => key === 'Enter' ? this.addTagFromInput() : null
 
     deleteTag = (tag) => {
         const newTags = this.state.tags.filter(t => tag !== t)
@@ -59,7 +76,7 @@ export default class extends React.Component {
                         })
                     }
                     <Form.Field>
-                        <Input transparent placeholder={'props.placeholder'}
+                        <Input transparent placeholder={this.props.placeholder}
                             value={this.state.inputValue}
                             onChange={this.updateInputValue.bind(this)}
                             onKeyPress={this.catchTagSubmit}
