@@ -1,5 +1,8 @@
 # r-s-tags-input
 
+# How to configure with jest:
+https://github.com/how-to-react/nwb-jest
+
 [![Travis][build-badge]][build]
 [![npm package][npm-badge]][npm]
 [![Coveralls][coveralls-badge]][coveralls]

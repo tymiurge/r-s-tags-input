@@ -1,21 +1,16 @@
-import { configure } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
+import { configure, shallow } from 'enzyme'
 import React from 'react'
-import { shallow } from 'enzyme'
-//import Tag from './../src/tag'
-
-// https://github.com/how-to-react/nwb-jest
-const Tag = props => (
-    <div>TAG</div>
-)
+import Tag from './../src/tag'
 
 configure({ adapter: new Adapter() });
 
-function sum(a, b) {
-    return a + b
-}
+// https://github.com/how-to-react/nwb-jest
 
-test('adds 1 + 2 to equal 3', () => {
+test('tag with specific text is rendered inside the Tag component', () => {
     const wrapper = shallow(<Tag text='tag1' />);
-    expect(sum(1, 2)).toBe(3);
+    expect(
+        wrapper.find('[text="tag1"]').length
+    ).toBe(1)
+    
 });
