@@ -50,7 +50,11 @@ export default class extends React.Component {
         )
     }
 
-    catchTagSubmit = ({key}) => key === 'Enter' ? this.addTagFromInput() : null
+    //catchTagSubmit = ({key}) => key === 'Enter' && this.state.inputValue !== '' ? this.addTagFromInput() : null
+    catchTagSubmit = ({key}) => {
+        const isInputEmpty = this.state.inputValue !== ''
+        return key === 'Enter' &&  isInputEmpty ? this.addTagFromInput() : null
+    }
 
     deleteTag = (tag) => {
         const newTags = this.state.tags.filter(t => tag !== t)
