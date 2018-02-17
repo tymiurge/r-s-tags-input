@@ -50,11 +50,7 @@ export default class extends React.Component {
         )
     }
 
-    //catchTagSubmit = ({key}) => key === 'Enter' && this.state.inputValue !== '' ? this.addTagFromInput() : null
-    catchTagSubmit = ({key}) => {
-        const isInputEmpty = this.state.inputValue !== ''
-        return key === 'Enter' &&  isInputEmpty ? this.addTagFromInput() : null
-    }
+    catchTagSubmit = ({key}) => key === 'Enter' && this.state.inputValue !== '' ? this.addTagFromInput() : null
 
     deleteTag = (tag) => {
         const newTags = this.state.tags.filter(t => tag !== t)
@@ -66,22 +62,18 @@ export default class extends React.Component {
 
     render () {
         return (
-            <Form>
-                <Form.Group>
-                    {
-                        this.state.tags.map((tag, idx) => {
-                            return <Tag key={idx} text={tag} removable onRemoveClick={this.deleteTag} />
-                        })
-                    }
-                    <Form.Field>
-                        <Input transparent placeholder={this.props.placeholder}
-                            value={this.state.inputValue}
-                            onChange={this.updateInputValue.bind(this)}
-                            onKeyPress={this.catchTagSubmit}
-                        />
-                    </Form.Field>
-                </Form.Group>
-            </Form>
+            <div className='tagsinput container'>
+                {
+                    this.state.tags.map((tag, idx) => {
+                        return <Tag key={idx} text={tag} removable onRemoveClick={this.deleteTag} className='tagitem' />
+                    })
+                }
+                <Input transparent placeholder={this.props.placeholder} className='taginput'
+                    value={this.state.inputValue}
+                    onChange={this.updateInputValue.bind(this)}
+                    onKeyPress={this.catchTagSubmit}
+                />
+            </div>
         )
     }
 }

@@ -1,0 +1,13 @@
+.tagsinput.container {
+    position: relative;
+}
+
+.tagsinput.container>.tagitem {
+    float: left; 
+    display: block;
+}
+
+.tagsinput.container>.taginput {
+    float: left; 
+    margin-left: 0.3em !important;
+}

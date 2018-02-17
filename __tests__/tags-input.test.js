@@ -20,5 +20,5 @@ test('pressing Enter in empty input does not add new tag', () => {
     const component = mount(<TagsInput tags={tagsFlatArray} />)
     const input = component.find('Input')
     input.simulate('keypress', {key: 'Enter'})
-    expect(component.find('div[className="ui small label"]').length).toBe(tagsFlatArray.length)
+    expect(component.find('div[className="ui small label tagitem"]').length).toBe(tagsFlatArray.length)
 })

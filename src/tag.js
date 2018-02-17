@@ -36,8 +36,7 @@ export default class extends React.Component {
     render () {
         const {removable, onRemoveClick, ...others} = this.props
         return (
-            <Form.Field>
-                <Container size="small" {...others}>
+            <Container size="small" {...others}>
                     {this.props.text}
                     {
                         removable &&
@@ -47,8 +46,7 @@ export default class extends React.Component {
                             onClick={() => onRemoveClick(this.props.text)}
                         />
                     }
-                </Container>
-            </Form.Field>
+            </Container>    
         )
     }
 }
