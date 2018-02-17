@@ -41,8 +41,7 @@ export default class extends React.Component {
         ))
     }
 
-    addTagFromInput = () => {
-        const newTag = this.state.inputValue
+    addTagFromInput = newTag => {
         const tags = [...this.state.tags, newTag]
         this.setState(
             Object.assign({}, this.state, {tags, inputValue: ''}),
@@ -50,7 +49,15 @@ export default class extends React.Component {
         )
     }
 
-    catchTagSubmit = ({key}) => key === 'Enter' && this.state.inputValue !== '' ? this.addTagFromInput() : null
+    catchTagSubmit = ({key}) => {
+        if (key !== 'Enter') return
+        const newTag = this.state.inputValue
+        const notDuplication = !this.state.tags.some(item => {
+            return item === newTag
+        })
+        const isNotEmpty = newTag !== ''
+        if (notDuplication && isNotEmpty) this.addTagFromInput(newTag)
+    }
 
     deleteTag = (tag) => {
         const newTags = this.state.tags.filter(t => tag !== t)
