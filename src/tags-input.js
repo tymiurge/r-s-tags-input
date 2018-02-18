@@ -36,15 +36,17 @@ export default class extends React.Component {
 
     updateInputValue (e) {
         const newValue = e.target.value
-        this.setState(Object.assign(
+        this.setState(
+            {...this.state, inputValue: newValue}
+            /*Object.assign(
           {}, this.state, {inputValue: newValue}
-        ))
+        )*/)
     }
 
     addTagFromInput = newTag => {
         const tags = [...this.state.tags, newTag]
         this.setState(
-            Object.assign({}, this.state, {tags, inputValue: ''}),
+            { ...this.state, tags, inputValue: ''},
             () => this.props.onTagAdd(newTag)
         )
     }
