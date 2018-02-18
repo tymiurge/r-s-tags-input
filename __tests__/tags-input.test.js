@@ -76,3 +76,32 @@ test('duplicated tag is not added', () => {
     input.simulate('keyPress', { keyCode: 13, key: 'Enter' })
     expect(component.find(Tag).length).toBe(tagsFlatArray.length)
 })
+
+test('tag is removed', () => {
+    const tagsFlatArray = ['tag1', 'tag2', 'tag3']
+    const component = mount(<TagsInput tags={tagsFlatArray} />)
+    const firstTag = component.find(Tag).first()
+    const removeBtn = firstTag.find('Icon[name="delete"]')
+    removeBtn.simulate('click')
+    expect(component.find(Tag).length).toBe(tagsFlatArray.length - 1)    
+})
+
+test('onTagAdd is called', () => {
+    const tagsFlatArray = ['tag1', 'tag2', 'tag3']
+    const onTagAddMock = jest.fn();
+    const component = mount(<TagsInput tags={tagsFlatArray} onTagAdd={onTagAddMock} />)
+    const input = component.find('input')
+    input.simulate('change', {target: {value: 'tag4'}})
+    input.simulate('keyPress', { keyCode: 13, key: 'Enter' })
+    expect(onTagAddMock.mock.calls.length).toBe(1)
+})
+
+test('onTagRemove is called', () => {
+    const tagsFlatArray = ['tag1', 'tag2', 'tag3']
+    const onTagRemoveMock = jest.fn();
+    const component = mount(<TagsInput tags={tagsFlatArray} onTagRemove={onTagRemoveMock} />)
+    const firstTag = component.find(Tag).first()
+    const removeBtn = firstTag.find('Icon[name="delete"]')
+    removeBtn.simulate('click')
+    expect(onTagRemoveMock.mock.calls.length).toBe(1)
+})
