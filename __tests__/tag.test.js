@@ -35,3 +35,7 @@ test('onRemoveClick callbeck is called by clicking on remove button', () => {
         .simulate('click')
     expect(onRemoveClickMock.mock.calls.length).toBe(1)
 })
+
+test('tag has color equaled to the one defined by color property', () => {
+    expect(shallow(<Tag text='tag1' color='red' />).props().color).toBe('red')
+})

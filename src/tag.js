@@ -12,7 +12,7 @@ const Container = props => {
         )
     }
     return (
-        <Label {...props} color={props.color} >
+        <Label {...props} >
             {props.children}
         </Label>
     )
