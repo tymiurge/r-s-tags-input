@@ -36,11 +36,7 @@ export default class extends React.Component {
 
     updateInputValue (e) {
         const newValue = e.target.value
-        this.setState(
-            {...this.state, inputValue: newValue}
-            /*Object.assign(
-          {}, this.state, {inputValue: newValue}
-        )*/)
+        this.setState({...this.state, inputValue: newValue})
     }
 
     addTagFromInput = newTag => {
@@ -74,7 +70,7 @@ export default class extends React.Component {
             <div className='tagsinput container'>
                 {
                     this.state.tags.map((tag, idx) => {
-                        return <Tag key={idx} text={tag} removable onRemoveClick={this.deleteTag} className='tagitem' />
+                        return <Tag key={idx} text={tag} removable color='blue' onRemoveClick={this.deleteTag} className='tagitem' />
                     })
                 }
                 <Input transparent placeholder={this.props.placeholder} className='taginput'
