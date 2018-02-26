@@ -69,14 +69,14 @@ export default class extends React.Component {
 
     render () {
         return (
-            <div style={{position: relative}}>
+            <div style={{display: 'flex', flexWrap: 'wrap'}}>
                 {
                     this.state.tags.map((tag, idx) => {
                         return <Tag key={idx} text={tag} removable color='blue' onRemoveClick={this.deleteTag} className='tagitem' />
                     })
                 }
                 <Input transparent placeholder={this.props.placeholder}
-                    style={{float: 'left', marginLeft: '0.3em'}}
+                    style={{marginLeft: '0.3em'}}
                     value={this.state.inputValue}
                     onChange={this.updateInputValue.bind(this)}
                     onKeyPress={this.catchTagSubmit}
