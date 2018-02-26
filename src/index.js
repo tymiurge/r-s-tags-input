@@ -2,7 +2,6 @@ import React, {Component} from 'react'
 import 'semantic-ui-css/semantic.min.css'
 import { Button } from 'semantic-ui-react'
 import TagsInput from './tags-input'
-import './style.css'
 
 export { TagsInput }
 

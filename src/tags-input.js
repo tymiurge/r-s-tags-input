@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Input, Label, Form, Icon } from 'semantic-ui-react'
 import Tag from './tag'
+import { relative } from 'path';
 
 
 export default class extends React.Component {
@@ -68,13 +69,14 @@ export default class extends React.Component {
 
     render () {
         return (
-            <div className='tagsinput container'>
+            <div style={{position: relative}}>
                 {
                     this.state.tags.map((tag, idx) => {
                         return <Tag key={idx} text={tag} removable color='blue' onRemoveClick={this.deleteTag} className='tagitem' />
                     })
                 }
-                <Input transparent placeholder={this.props.placeholder} className='taginput'
+                <Input transparent placeholder={this.props.placeholder}
+                    style={{float: 'left', marginLeft: '0.3em'}}
                     value={this.state.inputValue}
                     onChange={this.updateInputValue.bind(this)}
                     onKeyPress={this.catchTagSubmit}

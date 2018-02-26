@@ -36,7 +36,7 @@ export default class extends React.Component {
     render () {
         const {removable, onRemoveClick, ...others} = this.props
         return (
-            <Container size="small" {...others} style={{marginBottom: '1px'}}>
+            <Container size="small" {...others} style={{marginBottom: '1px', float: 'left', display: 'block'}}>
                     {this.props.text}
                     {
                         removable &&
