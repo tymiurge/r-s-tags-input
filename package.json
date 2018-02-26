@@ -54,10 +54,10 @@
     }
   },
   "author": "tymiurge",
-  "homepage": "",
+  "homepage": "https://github.com/tymiurge/react-semantic-tags-input",
   "license": "MIT",
-  "repository": "",
+  "repository": "https://github.com/tymiurge/react-semantic-tags-input.git",
   "keywords": [
-    "react-component"
+    "react-component", "tags-input", "tag", "input", "react-semantic"
   ]
 }

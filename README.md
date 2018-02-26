@@ -1,19 +1,10 @@
-# r-s-tags-input
+## Objective
 
-# How to configure with jest:
-https://github.com/how-to-react/nwb-jest
+tags-input react component based on react-semantic.
+![tags-input component](doc/tags-input.png "tags-input component pic")
 
-[![Travis][build-badge]][build]
-[![npm package][npm-badge]][npm]
-[![Coveralls][coveralls-badge]][coveralls]
-
-Describe r-s-tags-input here.
-
-[build-badge]: https://img.shields.io/travis/user/repo/master.png?style=flat-square
-[build]: https://travis-ci.org/user/repo
-
-[npm-badge]: https://img.shields.io/npm/v/npm-package.png?style=flat-square
-[npm]: https://www.npmjs.org/package/npm-package
-
-[coveralls-badge]: https://img.shields.io/coveralls/user/repo/master.png?style=flat-square
-[coveralls]: https://coveralls.io/github/user/repo
+## Acknowledges
+- https://reactjs.org
+- https://react.semantic-ui.com/introduction
+- https://github.com/insin/nwb
+- https://github.com/how-to-react/nwb-jest
