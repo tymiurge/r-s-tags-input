@@ -76,7 +76,7 @@ export default class extends React.Component {
                     })
                 }
                 <Input transparent placeholder={this.props.placeholder}
-                    style={{marginLeft: '0.3em'}}
+                    style={{marginLeft: '0.3em', width: 'auto'}}
                     value={this.state.inputValue}
                     onChange={this.updateInputValue.bind(this)}
                     onKeyPress={this.catchTagSubmit}

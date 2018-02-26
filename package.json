@@ -1,6 +1,6 @@
 {
   "name": "r-s-tags-input",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "r-s-tags-input React component",
   "main": "lib/index.js",
   "module": "es/index.js",
