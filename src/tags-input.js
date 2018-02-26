@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { Input, Label, Form, Icon } from 'semantic-ui-react'
 import Tag from './tag'
 
+
 export default class extends React.Component {
 
     static propTypes = {
