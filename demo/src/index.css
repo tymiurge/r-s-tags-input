@@ -1,0 +1,14 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.leftAndRightBorders {
+  border-left-color: #d4d4d5;
+  border-left-width: 1px;
+  border-left-style: solid;
+  border-right-color: #d4d4d5;
+  border-right-width: 1px;
+  border-right-style: solid;
+}
