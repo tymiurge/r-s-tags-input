@@ -18,7 +18,7 @@ const Container = props => {
     )
 }
 
-export default class extends React.Component {
+class Tags extends React.Component {
 
     static propTypes = {
         text: PropTypes.string.isRequired,
@@ -50,3 +50,5 @@ export default class extends React.Component {
         )
     }
 }
+
+export default Tags

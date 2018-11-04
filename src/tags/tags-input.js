@@ -5,7 +5,7 @@ import Tag from './tag'
 import { relative } from 'path';
 
 
-export default class extends React.Component {
+class TagsInput extends React.Component {
 
     static propTypes = {
         tags: PropTypes.array.isRequired,
@@ -85,3 +85,5 @@ export default class extends React.Component {
         )
     }
 }
+
+export default TagsInput
