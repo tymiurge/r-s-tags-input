@@ -1,4 +1,4 @@
-import { styling } from 'utils'
+import { styling } from './../utils'
 import table from './table'
 import menu from './menu'
 import container from './container'

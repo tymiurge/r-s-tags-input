@@ -1,7 +1,7 @@
 {
-  "name": "r-s-tags-input",
-  "version": "1.0.6",
-  "description": "r-s-tags-input React component",
+  "name": "react-semantic-ziggurat",
+  "version": "0.0.3",
+  "description": "non trivial components based on semantic react",
   "main": "lib/index.js",
   "module": "es/index.js",
   "files": [
@@ -30,9 +30,7 @@
   "dependencies": {
     "prop-types": "^15.6.0",
     "semantic-ui-css": "^2.2.14",
-    "semantic-ui-react": "^0.78.2",
-    "styles": "file:src/styles",
-    "utils": "file:src/utils"
+    "semantic-ui-react": "^0.78.2"
   },
   "peerDependencies": {
     "react": "16.x"
@@ -56,14 +54,14 @@
     }
   },
   "author": "tymiurge",
-  "homepage": "https://github.com/tymiurge/react-semantic-tags-input",
+  "homepage": "https://github.com/tymiurge/react-semantic-ziggurat",
   "license": "MIT",
-  "repository": "https://github.com/tymiurge/react-semantic-tags-input.git",
+  "repository": "https://github.com/tymiurge/react-semantic-ziggurat.git",
   "keywords": [
     "react-component",
     "tags-input",
     "tag",
-    "input",
-    "react-semantic"
+    "semantic-react",
+    "layouting"
   ]
 }

@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import SizeResolver from './SizeResolver'
-import { str, styling } from 'utils'
-import stl from 'styles'
+import { str, styling } from './../utils'
+import stl from './../styles'
 
 class FullSizePage extends React.Component {
 
