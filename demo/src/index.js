@@ -2,20 +2,15 @@ import React from 'react'
 import {render} from 'react-dom'
 import 'semantic-ui-css/semantic.min.css'
 import './index.css'
-import { Tags, Layouting } from '../../src'
+import { Layouting } from '../../src'
 import { List } from 'semantic-ui-react'
 import Header from './header'
+import * as views from './views'
 
 const demos = [
-  {
-    title: 'TagsInput',
-    content: () => (
-      <Tags.TagsInput
-        tags={['eng', 'fr', 'linux']}
-        placeholder={'tag and enter'}
-      />  
-    )
-  },
+  { title: 'Controls.BinaryChoise', content: () => <views.BinaryChoise /> },
+  { title: 'Controls.ValidatedInput', content: () => <views.ValidatedInput /> },
+  { title: 'Tags.TagsInput', content: () => <views.TagsInput /> },
   {
     title: 'FullSize Layout',
     content: () => (
@@ -46,39 +41,9 @@ const demos = [
         `}
       </div>
     )
-  }
+  },
 ]
 
-{/* <div>
-      <h1>r-s-tags-input Demo</h1>
-      <Tags.TagsInput
-        tags={['eng', 'fr', 'linux']}
-        placeholder={'tag and enter'}
-      />
-    </div> */}
-
-    // <Layouting.FullSizePage
-    //     header={(<div style={{backgroundColor: 'blue', color: 'white'}}>HEADER</div>)}
-    //     footer={(<div style={{backgroundColor: 'blue', color: 'white'}}>FOOTER</div>)}
-    //     leftAside={(
-    //       <div style={{backgroundColor: 'yellow'}}>
-    //         LEFT ASIDE CAN BE SCROLLABLE:
-    //         {
-    //           Array.from(Array(50).keys()).map(el => (<p key={el}>{el}</p>))
-    //         }
-    //       </div>
-    //     )}
-    //     rightAside={(
-    //       <div style={{backgroundColor: 'yellow'}}>
-    //         scrollable, too: 
-    //         {
-    //           Array.from(Array(50).keys()).map(el => (<p key={el}>{el}</p>))
-    //         }
-    //       </div>
-    //     )}
-    //     main={(<div>MAIN</div>)}
-    //     leftAsideWidth='35%'
-    //   />
 class Demo extends React.Component {
 
   state = {selected: 0}
