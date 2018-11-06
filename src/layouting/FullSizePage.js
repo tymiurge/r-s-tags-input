@@ -39,7 +39,6 @@ class FullSizePage extends React.Component {
 	}
 
 	onComponentSizeResolving = (h, componentName) => {
-    console.log('resolving ' + componentName + ' height; h = ' + h) 
 		if ( this.state[`${componentName}Height`] === null) {
       this.setState(
         {...this.state, [`${componentName}Height`]: h},
@@ -67,7 +66,6 @@ class FullSizePage extends React.Component {
 
 	render() {
     const fullHeight = window.innerHeight
-    console.log('fullHeight = ' + fullHeight)
 		const { headerHeight, footerHeight } = this.state
 		return (
 			<React.Fragment>
