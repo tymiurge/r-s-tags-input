@@ -19,6 +19,11 @@ npm start
 
 
 ## To publish
+if nwb isn't installed: 
+```
+npm install -g nwb
+```
+and then: 
 ```
 nwb build-react-component
 npm login
