@@ -1,25 +1,34 @@
 import React from 'react'
-import { Message, Segment } from 'semantic-ui-react'
 import AceEditor from 'react-ace'
 import 'brace/mode/javascript'
 import 'brace/theme/monokai'
+import PropTypes from 'prop-types'
 
-export default props => (
-  <div>
-    <Message
-      attached
-      header={props.title}
-    />
-    <Segment attached='bottom'>
-      <AceEditor
-        width={'100%'}
-        height={'500px'}
-        mode="javascript"
-        theme="monokai"
-        name="UNIQUE_ID_OF_DIV"
-        editorProps={{$blockScrolling: true}}
-        value={props.code}
-      />
-    </Segment>
-  </div>
+const propTypes = {
+  height: PropTypes.number,
+  code: PropTypes.string
+}
+
+const defaultProps = {
+  height: 300,
+  code: ''
+}
+
+const CodeViewer = props => (
+
+  <AceEditor
+    width={'100%'}
+    height={`${props.height}px`}
+    mode="javascript"
+    theme="monokai"
+    name="UNIQUE_ID_OF_DIV"
+    editorProps={{$blockScrolling: true}}
+    value={props.code}
+  />
+
 )
+
+CodeViewer.propTypes = propTypes
+CodeViewer.defaultProps = defaultProps
+
+export default CodeViewer

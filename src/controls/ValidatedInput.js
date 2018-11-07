@@ -3,6 +3,8 @@ import { Input, Form } from 'semantic-ui-react'
 import PropTypes from 'prop-types'
 import { validation } from './../utils'
 
+const _validate = (value, validators) => validation.validateAgainstArr(value, validators)
+
 class ValidatedInput extends React.Component {
 
   static propTypes = {
@@ -14,14 +16,16 @@ class ValidatedInput extends React.Component {
     icon: PropTypes.string,
     type: PropTypes.string,
     formField: PropTypes.bool,
-    label: PropTypes.string
+    label: PropTypes.string,
+    onEnter: PropTypes.func
   }
 
   static defaultProps = {
     value: '',
     validators: [],
     fieldBinding: null,
-    onChange: () => { },
+    onChange: () => {},
+    onEnter: () => {},
     placeholder: '',
     icon: '',
     type: 'text',
@@ -41,7 +45,7 @@ class ValidatedInput extends React.Component {
   }
 
   onChange = value => {
-    const valid = validation.validateAgainstArr(value, this.props.validators)
+    const valid = _validate(value, this.props.validators)
     this.setState(
       { ...this.state, value, valid },
       () => this.props.onChange(this.props.fieldBinding, value, this.state.valid)
@@ -49,16 +53,17 @@ class ValidatedInput extends React.Component {
   }
 
   onBlur = () => {
-    const valid = this.props.validators.reduce(
-      (accumulator, current) => {
-        return accumulator && current(this.state.value)
-      },
-      true
-    )
+    const valid = _validate(this.state.value, this.props.validators)
     this.setState(
       { ...this.state, valid },
       () => this.props.onChange(this.props.fieldBinding, this.state.value, valid)
     )
+  }
+
+  onKeyPress = key => {
+    if (key === 'Enter' && this.state.valid) {
+      this.props.onEnter(this.state.value)
+    }
   }
 
   render() {
@@ -69,7 +74,8 @@ class ValidatedInput extends React.Component {
       className: this.state.valid ? '' : 'error-state',
       type: this.props.type,
       onBlur: () => this.onBlur(),
-      onChange: e => this.onChange(e.target.value)
+      onChange: e => this.onChange(e.target.value),
+      onKeyPress: e => this.onKeyPress(e.key)
     })
     if (this.props.icon !== '') {
       _props = { ..._props, icon: this.props.icon, iconPosition: 'left' }
