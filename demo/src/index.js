@@ -11,6 +11,7 @@ const demos = [
   { title: 'Controls.BinaryChoise', content: () => <views.BinaryChoise /> },
   { title: 'Controls.ValidatedInput', content: () => <views.ValidatedInput /> },
   { title: 'Tags.TagsInput', content: () => <views.TagsInput /> },
+  { title: 'Row Full & Fill examples', content: () => <views.RowFullNFill />},
   {
     title: 'FullSize Layout',
     content: () => (
@@ -87,7 +88,7 @@ class Demo extends React.Component {
             { this.renderMain()}
           </div>
         )}
-        leftAsideWidth='15%'
+        leftAsideWidth='20%'
         rightAsideWidth='0%'
       />
     ) 
