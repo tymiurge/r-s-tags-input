@@ -7,6 +7,7 @@ export default () => (
      <Tags.TagsInput
         tags={['eng', 'fr', 'linux']}
         placeholder={'tag and enter'}
+        asSegment={true}
       /> 
 
       <CodeViewer
