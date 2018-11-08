@@ -45,7 +45,7 @@ class TagsInput extends React.Component {
     const tags = [...this.state.tags, newTag]
     this.setState(
       { ...this.state, tags, inputValue: ''},
-      () => this.props.onTagAdd(newTag)
+      () => this.props.onTagAdd(newTag, tags)
     )
   }
 
@@ -63,7 +63,7 @@ class TagsInput extends React.Component {
     const newTags = this.state.tags.filter(t => tag !== t)
     this.setState(
       Object.assign({}, this.state, { tags: newTags }),
-      () => this.props.onTagRemove(tag)
+      () => this.props.onTagRemove(tag, newTags)
     )
   }
 

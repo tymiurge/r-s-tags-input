@@ -8,6 +8,8 @@ export default () => (
         tags={['eng', 'fr', 'linux']}
         placeholder={'tag and enter'}
         asSegment={true}
+        onTagAdd={(tag, allTags) => alert(allTags.join())}
+        onTagRemove={(tag, allTags) => alert(allTags.join())}
       /> 
 
       <CodeViewer
