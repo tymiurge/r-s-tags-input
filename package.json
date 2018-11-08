@@ -1,6 +1,6 @@
 {
   "name": "react-semantic-ziggurat",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "non trivial components based on semantic react",
   "main": "lib/index.js",
   "module": "es/index.js",

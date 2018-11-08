@@ -14,12 +14,17 @@ export default () => (
 
       <CodeViewer
         title='Tags.TagsInput code example'
-        code={`
-        <Tags.TagsInput
-        tags={['eng', 'fr', 'linux']}
-        placeholder={'tag and enter'}
-        /> 
-        `}
+        code={
+`
+<Tags.TagsInput
+  tags={['eng', 'fr', 'linux']}
+  placeholder={'tag and enter'}
+  asSegment={true}
+  onTagAdd={(tag, allTags) => alert(allTags.join())}
+  onTagRemove={(tag, allTags) => alert(allTags.join())}
+/> 
+`
+      }
       />
   </div>
 )
