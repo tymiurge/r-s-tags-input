@@ -19,6 +19,7 @@ class TagsInput extends React.Component {
     placeholder: PropTypes.string,
     onTagAdd: PropTypes.func,
     onTagRemove: PropTypes.func,
+    onChange: PropTypes.func,
     asSegment: PropTypes.bool
   }
 
@@ -26,6 +27,7 @@ class TagsInput extends React.Component {
     placeholder: '',
     onTagAdd: () => {},
     onTagRemove: () => {},
+    onChange: () => {},
     tags: [],
     placeholder: '',
     asSegment: false
@@ -45,7 +47,10 @@ class TagsInput extends React.Component {
     const tags = [...this.state.tags, newTag]
     this.setState(
       { ...this.state, tags, inputValue: ''},
-      () => this.props.onTagAdd(newTag, this.state.tags)
+      () => {
+        this.props.onTagAdd(newTag, this.state.tags)
+        this.props.onChange(this.state.tags)
+      }
     )
   }
 
@@ -63,7 +68,10 @@ class TagsInput extends React.Component {
     const newTags = this.state.tags.filter(t => tag !== t)
     this.setState(
       Object.assign({}, this.state, { tags: newTags }),
-      () => this.props.onTagRemove(tag, this.state.tags)
+      () => {
+        this.props.onTagRemove(tag, this.state.tags)
+        this.props.onChange(this.state.tags)
+      }
     )
   }
 
